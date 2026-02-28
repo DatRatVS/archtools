@@ -33,15 +33,15 @@ run_arch_setup() {
     echo -e "${YELLOW}Starting Arch setup...${NC}"
 
     echo -e "${YELLOW}Mounting filesystems...${NC}"
-    # mount /dev/sda2 /mnt -o subvol=@
-    # mount /dev/sda2 /mnt/home -o subvol=@home
-    # mount /dev/sda2 /mnt/.snapshots -o subvol=@.snapshots
-    # mount /dev/sda2 /mnt/var/log -o subvol=@log
-    # mount /dev/sda2 /mnt/var/cache/pacman/pkg -o subvol=@pkg
-    # mount /dev/sda1 /mnt/boot
+    mount /dev/sda2 /mnt -o subvol=@
+    mount /dev/sda2 /mnt/home -o subvol=@home
+    mount /dev/sda2 /mnt/.snapshots -o subvol=@.snapshots
+    mount /dev/sda2 /mnt/var/log -o subvol=@log
+    mount /dev/sda2 /mnt/var/cache/pacman/pkg -o subvol=@pkg
+    mount /dev/sda1 /mnt/boot
 
     echo -e "${GREEN}Entering chroot...${NC}"
-    # arch-chroot /mnt
+    arch-chroot /mnt
 }
 
 show_menu() {
