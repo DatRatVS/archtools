@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ ! -t 0 ]; then
+    script=$(mktemp)
+    cat > "$script"
+    exec bash "$script" "$@"
+    rm -f "$script"
+fi
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
