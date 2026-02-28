@@ -1,10 +1,12 @@
 #!/bin/bash
 
 if [ ! -t 0 ]; then
-    script=$(mktemp)
+    script=$(mktemp /tmp/tui.XXXXXX.sh)
     cat > "$script"
-    exec bash "$script" "$@"
+    chmod +x "$script"
+    bash "$script" "$@" < /dev/tty
     rm -f "$script"
+    exit
 fi
 
 RED='\033[0;31m'
